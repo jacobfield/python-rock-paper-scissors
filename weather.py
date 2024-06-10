@@ -4,7 +4,16 @@ from configparser import ConfigParser
 import tkinter as tk
 from tkinter import messagebox
 
+# Setting up the main window for the application
+root = tk.Tk() # Creates the main window
+root.title("Python Weather App") #Setting window title
+root.geometry("300x200") # Setting window dimensions
 
+city_label = tk.Label(root, text="Enter City:") # label for the city input
+city_label.pack(pady=10) # adding the label to the window with padding
+
+city_entry = tk.Entry(root) # Creating an entry widget for user input
+city_entry.pack(pady=5) # Adding the entry widget to the window padding
 
 # Read the API key from the config file
 config = ConfigParser()
