@@ -28,7 +28,7 @@ def get_weather(): #function to be called
         messagebox.showwarning("Input Error", "Please enter a city name") 
 
 #Create a button to fetch weather data
-fetch_button = tk.button(root, text="Get weather", command=get_weather)
+fetch_button = tk.Button(root, text="Get weather", command=get_weather)
 fetch_button.pack(pady=10) #button with padding
 
 
@@ -55,9 +55,14 @@ def fetch_weather(city):
         print('Error fetching weather data')
         print(f'status code: {response.status_code}')
         messagebox.showerror("Error", "Error fetching weather data")
-
 # function to display weather
 def display_weather(temp, desc):
     temp_celcius = math.floor(temp-273.15) # convert temp to C
     #update label with weather data
-    result_label.config(text=f"Temperature: {temp_celcius} C/nDescription: {desc}")
+    result_label.config(text=f"Temperature: {temp_celcius} C\nDescription: {desc}")
+ # Create label for displaying weather data
+result_label = tk.Label(root, text="")
+# add the label to the window (with padding)
+result_label.pack(pady=10)
+#Start the Tkinter event loop to run the app
+root.mainloop()
